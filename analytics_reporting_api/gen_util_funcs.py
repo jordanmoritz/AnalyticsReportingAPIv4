@@ -2,8 +2,6 @@
 from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
 
-clean_operations = [str.strip, remove_ga_prefix, str.title]
-
 def get_service_client(scopes, api_name, api_version, service_key_file=None, credentials=None):
     
     if credentials:
@@ -26,3 +24,5 @@ def clean_strings(strings, operations):
             string = operation(string)
         results.append(string)
     return results
+
+clean_operations = [str.strip, remove_ga_prefix, str.title]
